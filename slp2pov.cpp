@@ -4,7 +4,7 @@
 #include "stdafx.h"
 using namespace std;
 
-// a change.
+// a change. from github.
 class triangle {
 	float x_coord, y_coord, z_coord;
 	float x_normal, y_normal, z_normal;
