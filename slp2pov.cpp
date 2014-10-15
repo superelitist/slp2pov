@@ -6,7 +6,6 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	string filename;
 	if (argc != 2) // argc should be 2 for correct execution
 		cout << "usage: " << "slp2pov" << " <filename>\n"; // Original author recommended argv[0], but that outputs gibberish. I'm hardcoding this in lieu of a workaround.
 	else {
@@ -27,3 +26,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	return 0;
 }
 
+/* 
+TODO:
++ Finish the todo list. I'm too tired to do it now.
++ Define a class for colors, and a class for triangles.
++ Parse the input into an object for each color and triangle, ordered appropriately.
+*/
