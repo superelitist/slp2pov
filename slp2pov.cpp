@@ -4,21 +4,37 @@
 #include "stdafx.h"
 using namespace std;
 
-// a change. from github.
-class triangle {
-	float x_coord, y_coord, z_coord;
-	float x_normal, y_normal, z_normal;
+/*
+class facet {
+	point points [3];
 public:
-	void set_coords(float, float, float);
+	void set_points(point, point, point);
 	float coords() { return x_coord, y_coord, z_coord; }
 };
 
-void triangle::set_coords(float x, float y, float z) {
+void facet::set_points(point, point, point) {
 	x_coord = x;
 	y_coord = y;
 	z_coord = z;
 }
+*/
 
+class vertex {
+	float x_coord, y_coord, z_coord;
+public:
+	void set_coords(float x, float y, float z) { x_coord = x, y_coord = y, z_coord = z; }
+	float get_coords() { return x_coord, y_coord, z_coord; }
+};
+
+/*/
+void vertex::set_coords(float x,  float y, float z) {
+	x_coord = x;
+	y_coord = y;
+	z_coord = z;
+}
+*/
+
+// TODO: There should be a normal class very similar to the vertex class.
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -42,6 +58,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	return 0;
 }
+
+
 
 /* 
 TODO:
