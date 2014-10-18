@@ -1,8 +1,14 @@
 // slp2pov.cpp : Defines the entry point for the console application.
 //
 
+/*
+TODO:
++ Finish the todo list. I'm too tired to do it now. Still too tired.
++ Define a class for colors, and a class for triangles.
++ Parse the input into an object for each color and triangle, ordered appropriately.
+*/
+
 #include "stdafx.h"
-#include <tuple>
 using namespace std;
 
 class vertex {
@@ -39,41 +45,11 @@ public:
 	vertex get_a() { return points[0]; }
 };
 
-// TODO: There should be a normal class very similar to the vertex class.
+class color {
+	vector<facet> facets;
+public:
 
-int _tmain(int argc, _TCHAR* argv[])
-{
-	cout << "Version 0.03\n";
-	if (argc != 2) // argc should be 2 for correct execution
-		cout << "usage: " << "slp2pov" << " <filename>\n"; // Original author recommended argv[0], but that outputs gibberish. I'm hardcoding this in lieu of a workaround.
-	else {
-		// We assume argv[1] is a filename to open
-		ifstream the_file(argv[1]);
-		// Always check to see if file opening succeeded
-		if (!the_file.is_open())
-			cout << "Could not open file\n";
-		else {
-			string line;
-			while (the_file.good()){ // good() returns true except for an eof or other error.
-				getline (the_file , line);
-				cout << line << endl;
-			}
-		// insert some code testing...
-			
-		}
-		// the_file is closed implicitly here
-	}
-	return 0;
-}
-
-
-
-/* 
-TODO:
-+ Finish the todo list. I'm too tired to do it now.
-+ Define a class for colors, and a class for triangles.
-+ Parse the input into an object for each color and triangle, ordered appropriately.
-*/
+};
 
 void test()
 {
@@ -104,4 +80,28 @@ void test()
 	cout << "a is at => " << f01ax << ", " << f01ay << ", " << f01az << endl;
 	cout << "b is at => " << f01bx << ", " << f01by << ", " << f01bz << endl;
 	cout << "c is at => " << f01cx << ", " << f01cy << ", " << f01cz << endl;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	cout << "Version 0.03\n";
+	if (argc != 2) // argc should be 2 for correct execution
+		cout << "usage: " << "slp2pov" << " <filename>\n"; // Original author recommended argv[0], but that outputs gibberish. I'm hardcoding this in lieu of a workaround.
+	else {
+		// We assume argv[1] is a filename to open
+		ifstream the_file(argv[1]);
+		// Always check to see if file opening succeeded
+		if (!the_file.is_open())
+			cout << "Could not open file\n";
+		else {
+			string line;
+			while (the_file.good()){ // good() returns true except for an eof or other error.
+				getline (the_file , line);
+				cout << line << endl;
+			}
+			test (); // insert some code testing...
+		}
+		// the_file is closed implicitly here
+	}
+	return 0;
 }
