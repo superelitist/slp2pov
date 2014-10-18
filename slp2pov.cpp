@@ -42,24 +42,26 @@ public:
 		points[2] = c;
 	}
 	vertex * get_points() { return points; }
-	vertex get_a() { return points[0]; }
 };
 
 class color {
 	vector<facet> facets;
 	float rgb[3];
 public:
-	void init_facet(int s, float r, float g, float b) {
-		facets.resize(s);
+	void init_color(float r, float g, float b, int s) {
 		rgb[0] = r;
 		rgb[1] = g;
 		rgb[2] = b;
+		facets.resize(s);
 	}
 	void add_facet(facet f) {
 		facets.push_back(f);
 	}
 	vector<facet> get_facets() {
 		return facets;
+	}
+	float * get_rgb() {
+		return rgb;
 	}
 };
 
@@ -92,7 +94,17 @@ void test()
 	cout << "a is at => " << f01ax << ", " << f01ay << ", " << f01az << endl;
 	cout << "b is at => " << f01bx << ", " << f01by << ", " << f01bz << endl;
 	cout << "c is at => " << f01cx << ", " << f01cy << ", " << f01cz << endl;
+	float cred = 0.00;
+	float cgreen = 1.00;
+	float cblue = 0.50;
+	int csize = 12;
 	color black;
+	black.init_color(cred, cgreen, cblue, csize);
+	black.add_facet(f_01);
+	float black_red = black.get_rgb()[0];
+	float black_green = black.get_rgb()[1];
+	float black_blue = black.get_rgb()[2];
+	cout << "color (rgb):" << black_red << ", " << black_green << ", " << black_blue;
 
 }
 
