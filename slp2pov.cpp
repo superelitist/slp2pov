@@ -118,12 +118,33 @@ int _tmain(int argc, _TCHAR* argv[])
 		ifstream the_file(argv[1]);
 		// Always check to see if file opening succeeded
 		if (!the_file.is_open())
-			cout << "Could not open file\n";
+			cout << "Could not open file" << endl;
 		else {
 			string line;
+			int line_num = 0;
+			if (the_file.good()){ // good() returns true except for an eof or other error.
+				getline(the_file, line); // HOPING this always starts with the first line!
+				line_num++;
+				smatch match;
+				regex e ("\\b(solid)([^ ]*)");
+				if (!regex_search(line, match, e)){
+					cout << "first line does NOT appear to be a solid, quitting..." << endl;
+					return 1;
+				}
+				else {
+					cout << "first line looks pretty solid..." << endl;
+				}
+				
+			}
 			while (the_file.good()){ // good() returns true except for an eof or other error.
-				getline (the_file , line);
-				cout << line << endl;
+				getline (the_file , line); // hoping this is now the second line.
+				line_num++;
+
+				//cout << line_num;
+				cout << line << endl; // prints the line out. Will be removed at some point.
+				// we need to figure out some basic things about the file, to make sure it is parsable.
+				// is the first word in the file always "solid"?
+				// 
 			}
 			test (); // insert some code testing...
 		}
