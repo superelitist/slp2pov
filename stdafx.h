@@ -3,16 +3,20 @@
 // are changed infrequently
 //
 
-#pragma once
+//#pragma once
 
 #include "targetver.h"
 
 #include <stdio.h>
 #include <tchar.h>
+
+// TODO: reference additional headers your program requires here
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
+#include <regex>
 
-
-// TODO: reference additional headers your program requires here
+#include "classes.h"
+#include "slp2pov_test.h"
