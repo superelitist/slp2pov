@@ -47,8 +47,20 @@ public:
 
 class color {
 	vector<facet> facets;
+	float rgb[3];
 public:
-
+	void init_facet(int s, float r, float g, float b) {
+		facets.resize(s);
+		rgb[0] = r;
+		rgb[1] = g;
+		rgb[2] = b;
+	}
+	void add_facet(facet f) {
+		facets.push_back(f);
+	}
+	vector<facet> get_facets() {
+		return facets;
+	}
 };
 
 void test()
@@ -80,6 +92,8 @@ void test()
 	cout << "a is at => " << f01ax << ", " << f01ay << ", " << f01az << endl;
 	cout << "b is at => " << f01bx << ", " << f01by << ", " << f01bz << endl;
 	cout << "c is at => " << f01cx << ", " << f01cy << ", " << f01cz << endl;
+	color black;
+
 }
 
 int _tmain(int argc, _TCHAR* argv[])
