@@ -1,5 +1,6 @@
 #ifndef CLASSES_H
 #define CLASSES_H
+#include "stdafx.h"
 
 class vertex;
 void set_coords(float x, float y, float z);
