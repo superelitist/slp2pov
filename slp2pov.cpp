@@ -2,43 +2,38 @@
 //
 
 #include "stdafx.h"
+#include <tuple>
 using namespace std;
 
-/*
-class facet {
-	point points [3];
-public:
-	void set_points(point, point, point);
-	float coords() { return x_coord, y_coord, z_coord; }
-};
-
-void facet::set_points(point, point, point) {
-	x_coord = x;
-	y_coord = y;
-	z_coord = z;
-}
-*/
-
 class vertex {
-	float x_coord, y_coord, z_coord;
+	float coords [3]; // ALWAYS x y z
 public:
-	void set_coords(float x, float y, float z) { x_coord = x, y_coord = y, z_coord = z; }
-	float get_coords() { return x_coord, y_coord, z_coord; }
+	void set_coords(float x, float y, float z) {
+		coords[0] = x;
+		coords[1] = y;
+		coords[2] = z;
+	}
+	float * get_coords() { return coords; }
 };
 
-/*/
-void vertex::set_coords(float x,  float y, float z) {
-	x_coord = x;
-	y_coord = y;
-	z_coord = z;
-}
-*/
+class facet {
+	vertex points[3]; // ALWAYS a b c
+public:
+	void set_points(vertex a, vertex b, vertex c) {
+		points[0] = a;
+		points[1] = b;
+		points[2] = c;
+	}
+	vertex * get_points() { return points; }
+	vertex get_a() { return points[0]; }
+//	vertex get_a() { return points[0]; }
+};
 
 // TODO: There should be a normal class very similar to the vertex class.
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	cout << "Version 0.02\n";
+	cout << "Version 0.03\n";
 	if (argc != 2) // argc should be 2 for correct execution
 		cout << "usage: " << "slp2pov" << " <filename>\n"; // Original author recommended argv[0], but that outputs gibberish. I'm hardcoding this in lieu of a workaround.
 	else {
@@ -53,6 +48,27 @@ int _tmain(int argc, _TCHAR* argv[])
 				getline (the_file , line);
 				cout << line << endl;
 			}
+		// insert some code testing...
+			vertex v_a;
+			v_a.set_coords(1, 2, 3);
+			float *a = v_a.get_coords();
+			cout << "vertex v_a" << "=" << &v_a << endl;
+			cout << "x is " << a[0] << ", y is " << a[1] << " and z is " << a[2] << endl;
+			vertex v_b;
+			v_b.set_coords(2, 4, 6);
+			float *b = v_b.get_coords();
+			cout << "vertex v_b" << "=" << &v_b << endl;
+			cout << "x is " << b[0] << ", y is " << b[1] << " and z is " << b[2] << endl; 
+			vertex v_c;
+			v_c.set_coords(3, 6, 9);
+			float *c = v_c.get_coords();
+			cout << "vertex v_c" << "=" << &v_c << endl;
+			cout << "x is " << c[0] << ", y is " << c[1] << " and z is " << c[2] << endl;
+			facet f_01;
+			f_01.set_points(v_a, v_b, v_c);
+			float *f_01_v_a = f_01.get_points()[0].get_coords();
+			cout << "facet f_01" << &f_01 << endl;
+			cout << "a is at" << f_01_v_a[0] << endl;
 		}
 		// the_file is closed implicitly here
 	}
