@@ -1,6 +1,5 @@
 #include "stdafx.h"
 
-
 void vertex::set_coords(float x, float y, float z) {
 	vertex::coords[0] = x;
 	vertex::coords[1] = y;

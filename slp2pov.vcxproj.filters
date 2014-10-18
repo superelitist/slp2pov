@@ -30,6 +30,9 @@
     <ClInclude Include="slp2pov_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="error_handler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -38,11 +41,14 @@
     <ClCompile Include="slp2pov.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="classes.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="slp2pov_test.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="classes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="error_handler.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
