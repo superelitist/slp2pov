@@ -18,8 +18,10 @@
 #include <vector>
 #include <regex>
 
+#include "c_tokenizer.h" // from http://www.cplusplus.com/faq/sequences/strings/split/
 
 #include "error_handler.h"
+#include "config_handler.h"
 // #include "log_handler"
 // #include "file_handler"
 #include "classes.h"
